@@ -482,6 +482,26 @@ public class MtResultSet
         }
         return returnTime;
     }
+
+    /**
+     * 由 columnLabel
+     * @return 得到timestamp
+     */
+    public java.sql.Timestamp getTimestamp(String columnLabel)
+    {
+        java.sql.Timestamp returnTime;
+
+        try
+        {
+            returnTime=this.set.getTimestamp(columnLabel);
+        }
+        catch (SQLException e)
+        {
+            this.logger.error("Error occurred in MtResultSet.getTimestamp(String columnLabel)");
+            throw new MtSqlException("Error occurred inMtResultSet.getTimestamp(String columnLabel)",e);
+        }
+        return returnTime;
+    }
 }
 
 
